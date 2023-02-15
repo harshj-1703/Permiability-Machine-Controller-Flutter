@@ -34,89 +34,99 @@ class _DashboardState extends State<Dashboard> {
       backgroundColor: Colors.grey[400],
       body: Column(
         children: [
-          StreamBuilder(
-              stream: get_Data(),
-              builder: (ctx, snapshot) {
-                if (!snapshot.hasData) {
-                  return Center(child: CircularProgressIndicator());
-                }
-                return Expanded(
-                  child: MediaQuery.removePadding(
-                    context: context,
-                    removeTop: true,
-                    child: ListView(
-                      padding: EdgeInsets.all(5),
-                      children: [
-                        Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          color: Colors.white,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                snapshot.data!.id,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.ID1,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.time,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.gas,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.temp,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.pmax,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.pmin,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.pavg,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.gmax,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.gmin,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.gavg,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                            ],
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.fromLTRB(7, 4, 7, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            // child:
+                            // Image.asset(
+                            //   'assets/images/logo1.png',
+                            //   height: 50,
+                            // ),
                           ),
-                        ),
-                      ],
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.all(2),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                                      child: Container(
+                                        padding: EdgeInsets.all(4),
+                                        alignment: Alignment.center,
+                                        // height: 25,
+                                        color: Colors.amber,
+                                        // width: 250,
+                                        child: Text(
+                                          'ABC INDUSTRIES',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.fromLTRB(0, 4, 0, 4),
+                                      child: Container(
+                                        padding: EdgeInsets.all(4),
+                                        alignment: Alignment.center,
+                                        // height: 25,
+                                        color: Colors.green,
+                                        // width: 250,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Permiability Machine Data',
+                                              style: TextStyle(
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 12),
+                                            ),
+                                            // Text(
+                                            //   'Pattern Processing',
+                                            //   style: TextStyle(
+                                            //       color: Colors.white,
+                                            //       fontWeight: FontWeight.bold,
+                                            //       fontSize: 12),
+                                            // ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      color: Colors.transparent,
+                      height: 80,
                     ),
-                  ),
-                );
-              }),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          Divider(),
           StreamBuilder(
               stream: get_Data(),
               builder: (ctx, snapshot) {
@@ -137,58 +147,63 @@ class _DashboardState extends State<Dashboard> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              // Text(
+                              //   snapshot.data!.id,
+                              //   style: TextStyle(
+                              //       fontSize: 18, color: Colors.amber),
+                              // ),
+                              // Text(
+                              //   snapshot.data!.ID1,
+                              //   style: TextStyle(
+                              //       fontSize: 18, color: Colors.amber),
+                              // ),
+                              // Text(
+                              //   snapshot.data!.time,
+                              //   style: TextStyle(
+                              //       fontSize: 18, color: Colors.amber),
+                              // ),
                               Text(
-                                snapshot.data!.id,
+                                "GAS : ${snapshot.data!.gas}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.ID1,
+                                "TEMP : ${snapshot.data!.temp}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.time,
+                                "TEST : ${snapshot.data!.test}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.gas,
+                                "PMAX : ${snapshot.data!.pmax}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.temp,
+                                "PMIN : ${snapshot.data!.pmin}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.pmax,
+                                "PAVG : ${snapshot.data!.pavg}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.pmin,
+                                "GMAX : ${snapshot.data!.gmax}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.pavg,
+                                "GMIN : ${snapshot.data!.gmin}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
                               Text(
-                                snapshot.data!.gmax,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.gmin,
-                                style: TextStyle(
-                                    fontSize: 18, color: Colors.amber),
-                              ),
-                              Text(
-                                snapshot.data!.gavg,
+                                "GAVG : ${snapshot.data!.gavg}",
                                 style: TextStyle(
                                     fontSize: 18, color: Colors.amber),
                               ),
